@@ -1,0 +1,317 @@
+:root {
+  --text-primary: #f3f3f3;
+  --text-error: #ff3333;
+  --border-light: rgba(255, 255, 255, 0.5);
+  --bg-overlay: rgba(255, 255, 255, 0.2);
+  --transition-duration: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#main-container {
+  background: url('night.jpg') no-repeat center/cover;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: background-image 1s ease;
+}
+
+header {
+  padding: 2.5rem 3.5rem 0 0;
+  align-self: flex-end;
+}
+
+.form-group {
+  position: relative;
+  display: inline-block;
+}
+
+.submit-btn {
+  position: absolute;
+  top: 50%;
+  left: 1.5rem;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.fa-search {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  transition: transform var(--transition-duration);
+}
+
+.submit-btn:hover .fa-search {
+  transform: scale(1.1);
+}
+
+input[type='text'] {
+  width: 24rem;
+  height: 4.5rem;
+  background: var(--bg-overlay);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0 1.5rem 0.3rem 4.5rem;
+  color: var(--text-primary);
+  font-size: 1.6rem;
+  transition: box-shadow var(--transition-duration);
+}
+
+input[type='text']:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--text-primary);
+}
+
+input[type='text']::placeholder {
+  color: var(--text-primary);
+  opacity: 0.8;
+}
+
+.error-msg {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 0;
+  color: var(--text-error);
+  font-size: 1.5rem;
+  display: none;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  color: var(--text-primary);
+}
+
+.main-weather-display {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.general-info {
+  margin-bottom: 2rem; /* Reduced from 3rem */
+}
+
+.condition {
+  font-size: 1.8rem; /* Reduced from 2.2rem */
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.location {
+  font-size: clamp(2.5rem, 4vw, 3.5rem); /* Reduced from clamp(3rem, 5vw, 4rem) */
+  margin-bottom: 1rem; /* Reduced from 1.5rem */
+  font-weight: 800;
+  letter-spacing: 0.1rem;
+}
+
+.temperature {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 0.5rem; /* Added for spacing */
+}
+
+.degrees {
+  font-size: clamp(6rem, 12vw, 10rem); /* Reduced from clamp(8rem, 15vw, 15rem) */
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+  line-height: 1;
+}
+
+.unit {
+  font-size: 2.5rem; /* Reduced from 3rem */
+  padding-top: 1.2rem; /* Reduced from 1.8rem */
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem; /* Reduced from 1.5rem */
+  font-size: 1.4rem; /* Reduced from 1.6rem */
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  padding-top: 2rem; /* Reduced from 3rem */
+  border-top: 0.2rem solid var(--border-light);
+}
+
+.weather-details p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.7s ease forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding-right: 1.5rem;
+  }
+  
+  input[type='text'] {
+    width: 20rem;
+  }
+  
+  main {
+    padding: 0 5%;
+  }
+  
+  .weather-details {
+    grid-template-columns: 1fr;
+  }
+
+  /* Additional mobile font adjustments */
+  .condition {
+    font-size: 1.6rem;
+  }
+  
+  .location {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+  }
+  
+  .degrees {
+    font-size: clamp(5.5rem, 12vw, 8rem);
+  }
+  
+  .unit {
+    font-size: 2rem;
+    padding-top: 1rem;
+  }
+  
+  .weather-details {
+    font-size: 1.3rem;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  input[type='text'] {
+    width: 16rem;
+  }
+  
+  .general-info {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Further reduce sizes for very small screens */
+  .condition {
+    font-size: 1.4rem;
+  }
+  
+  .location {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 0.8rem;
+  }
+  
+  .degrees {
+    font-size: clamp(5rem, 12vw, 6.5rem);
+  }
+  
+  .unit {
+    font-size: 1.8rem;
+    padding-top: 0.8rem;
+  }
+  
+  .weather-details {
+    font-size: 1.2rem;
+    padding-top: 1.5rem;
+  }
+}
+
+/* Add to existing CSS */
+.unit-toggle {
+  position: absolute;
+  top: 2.5rem;
+  right: 3.5rem;
+  display: flex;
+  background: var(--bg-overlay);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.unit-btn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition-duration);
+}
+
+.unit-btn.active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Update wind unit for metric system */
+.wind-mph::after {
+  content: " KPH";
+}
+
+/* Add unit symbol for feels like */
+.feels-like .unit-symbol {
+  margin-left: 0.2rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .unit-toggle {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .unit-toggle {
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  .unit-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 1.4rem;
+  }
+}
