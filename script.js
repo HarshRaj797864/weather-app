@@ -13,7 +13,7 @@ const celsiusBtn = document.getElementById('celsius-btn');
 const fahrenheitBtn = document.getElementById('fahrenheit-btn');
 
 // API Configuration
-const API_KEY = '1986480656ec490d950204923202611';
+const API_KEY = process.env.WEATHER_API_KEY;
 const API_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=`;
 
 // Unit state
