@@ -12,11 +12,9 @@ const humidityEl = document.querySelector('.humidity span');
 const celsiusBtn = document.getElementById('celsius-btn');
 const fahrenheitBtn = document.getElementById('fahrenheit-btn');
 
-// API Configuration
 const API_KEY = process.env.WEATHER_API_KEY;
 const API_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=`;
 
-// Unit state
 let currentUnit = 'c';
 let currentWeatherData = null;
 
@@ -84,18 +82,15 @@ function processData(weatherData) {
 function updateWeatherUI() {
   if (!currentWeatherData) return;
   
-  // Apply animations
   weatherInfo.forEach(div => {
     div.classList.remove('scale-in');
-    void div.offsetWidth; // Trigger reflow
+    void div.offsetWidth; 
     div.classList.add('scale-in');
   });
   
-  // Update DOM
   conditionEl.textContent = currentWeatherData.condition.toUpperCase();
   locationEl.textContent = `${currentWeatherData.location}, ${currentWeatherData.region}`;
   
-  // Update temperature based on selected unit
   if (currentUnit === 'c') {
     degreesEl.textContent = currentWeatherData.currentTempC;
     unitEl.textContent = '°C';
@@ -115,11 +110,10 @@ function updateWeatherUI() {
 function showError() {
   errorMsg.style.display = 'block';
   errorMsg.classList.remove('fade-in');
-  void errorMsg.offsetWidth; // Trigger reflow
+  void errorMsg.offsetWidth; 
   errorMsg.classList.add('fade-in');
 }
 
-// Initialize with default location
 window.addEventListener('DOMContentLoaded', () => {
   getWeatherData('Sri City')
     .then(data => {

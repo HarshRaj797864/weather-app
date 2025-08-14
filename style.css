@@ -102,18 +102,18 @@ main {
 }
 
 .general-info {
-  margin-bottom: 2rem; /* Reduced from 3rem */
+  margin-bottom: 2rem; 
 }
 
 .condition {
-  font-size: 1.8rem; /* Reduced from 2.2rem */
+  font-size: 1.8rem; 
   letter-spacing: 0.1rem;
   margin-bottom: 0.5rem;
 }
 
 .location {
-  font-size: clamp(2.5rem, 4vw, 3.5rem); /* Reduced from clamp(3rem, 5vw, 4rem) */
-  margin-bottom: 1rem; /* Reduced from 1.5rem */
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  margin-bottom: 1rem;
   font-weight: 800;
   letter-spacing: 0.1rem;
 }
@@ -121,29 +121,29 @@ main {
 .temperature {
   display: flex;
   align-items: flex-start;
-  margin-top: 0.5rem; /* Added for spacing */
+  margin-top: 0.5rem;
 }
 
 .degrees {
-  font-size: clamp(6rem, 12vw, 10rem); /* Reduced from clamp(8rem, 15vw, 15rem) */
+  font-size: clamp(6rem, 12vw, 10rem); 
   font-weight: 900;
   font-family: 'Nunito', sans-serif;
   line-height: 1;
 }
 
 .unit {
-  font-size: 2.5rem; /* Reduced from 3rem */
-  padding-top: 1.2rem; /* Reduced from 1.8rem */
+  font-size: 2.5rem;
+  padding-top: 1.2rem;
 }
 
 .weather-details {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.2rem; /* Reduced from 1.5rem */
-  font-size: 1.4rem; /* Reduced from 1.6rem */
+  gap: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.1rem;
-  padding-top: 2rem; /* Reduced from 3rem */
+  padding-top: 2rem;
   border-top: 0.2rem solid var(--border-light);
 }
 
@@ -153,7 +153,7 @@ main {
   gap: 0.5rem;
 }
 
-/* Animations */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -184,7 +184,7 @@ main {
   animation: scaleIn 0.7s ease forwards;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   header {
     padding-right: 1.5rem;
@@ -202,7 +202,7 @@ main {
     grid-template-columns: 1fr;
   }
 
-  /* Additional mobile font adjustments */
+  
   .condition {
     font-size: 1.6rem;
   }
@@ -235,7 +235,7 @@ main {
     margin-bottom: 1.5rem;
   }
 
-  /* Further reduce sizes for very small screens */
+  
   .condition {
     font-size: 1.4rem;
   }
@@ -260,7 +260,7 @@ main {
   }
 }
 
-/* Add to existing CSS */
+
 .unit-toggle {
   position: absolute;
   top: 2.5rem;
@@ -286,17 +286,17 @@ main {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Update wind unit for metric system */
+
 .wind-mph::after {
   content: " KPH";
 }
 
-/* Add unit symbol for feels like */
+
 .feels-like .unit-symbol {
   margin-left: 0.2rem;
 }
 
-/* Media Queries */
+
 @media (max-width: 768px) {
   .unit-toggle {
     top: 1.5rem;
