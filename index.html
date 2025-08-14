@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Real-time weather information">
+    
+    <!-- Combined Google Fonts request -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Nunito:wght@800&family=Source+Sans+Pro:wght@900&display=swap" 
+      rel="stylesheet"
+    />
+    
+    <!-- Font Awesome via CDN -->
+    <script
+      src="https://kit.fontawesome.com/a538d6fa29.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div id="main-container">
+      <header>
+        <form id="weather-form">
+          <div class="form-group">
+            <button type="submit" class="submit-btn" aria-label="Search">
+              <i class="fas fa-search"></i>
+            </button>
+            <input 
+              type="text" 
+              name="location"
+              placeholder="Search city" 
+              aria-label="City name"
+              required
+            />
+            <span class="error-msg" role="alert">No matching location found!</span>
+          </div>
+        </form>
+      </header>
+      
+      <main>
+        <div class="main-weather-display info">
+          <div class="general-info">
+            <p class="condition">MOSTLY SUNNY</p>
+            <h1 class="location">SRI CITY, INDIA</h1>
+            <div class="temperature">
+              <span class="degrees">27</span>
+              <span class="unit">°C</span>
+            </div>
+          </div>
+          
+          <div class="weather-details info">
+            <p class="feels-like">FEELS LIKE: <span>28</span><span class="unit-symbol">°C</span></p>
+            <p class="wind-mph">WIND: <span>8</span> KPH</p>
+            <p class="humidity">HUMIDITY: <span>65</span>%</p>
+          </div>
+        </div>
+      </main>
+      
+      <div class="unit-toggle">
+        <button id="celsius-btn" class="unit-btn active">°C</button>
+        <button id="fahrenheit-btn" class="unit-btn">°F</button>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
