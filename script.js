@@ -12,7 +12,7 @@ const humidityEl = document.querySelector('.humidity span');
 const celsiusBtn = document.getElementById('celsius-btn');
 const fahrenheitBtn = document.getElementById('fahrenheit-btn');
 
-const API_KEY = process.env.WEATHER_API_KEY;
+const API_KEY = window.API_KEY;
 const API_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=`;
 
 let currentUnit = 'c';
@@ -115,7 +115,7 @@ function showError() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  getWeatherData('Sri City')
+  getWeatherData('Tada, India')
     .then(data => {
       currentWeatherData = processData(data);
       updateWeatherUI();
